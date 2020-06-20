@@ -1,0 +1,1 @@
+Basic app to learn basics of layouts in android
