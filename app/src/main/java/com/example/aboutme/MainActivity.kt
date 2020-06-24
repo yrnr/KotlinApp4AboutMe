@@ -9,28 +9,24 @@ import androidx.databinding.DataBindingUtil
 import com.example.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
+    private val myName: MyName = MyName("యింటే యెంతో వుంది..")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-//        findViewById<Button>(R.id.done_button).setOnClickListener {
-//            addNickname(it)
-//        }
+        binding.myName = myName
         binding.doneButton.setOnClickListener {
             addNickname(it)
         }
     }
 
     private fun addNickname(view: View){
-//        val editText = findViewById<EditText>(R.id.nickname_edit)
-//        val nicknameTextView = findViewById<TextView>(R.id.nickname_text)
-//        val storyTextView = findViewById<TextView>(R.id.story_text)
 
         binding.apply{
-            nicknameText.text = "Well " + nicknameEdit.text + ", here's a story for you"
+//            nicknameText.text = "Well " + nicknameEdit.text + ", here's a story for you"
+//            val myName.nickname = "Well " + nicknameEdit.text + ", here's a story for you"
+            myName?.nickname = "Well " + nicknameEdit.text.toString() + ", here's a story for you"
             invalidateAll()
             nicknameEdit.visibility = View.GONE
             doneButton.visibility = View.GONE
